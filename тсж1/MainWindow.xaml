@@ -43,9 +43,9 @@
     <StackPanel Grid.Column="0">
         <TextBlock Text="Категории" FontSize="18" FontWeight="Bold" Margin="0 10 0 10"/>
         <ComboBox x:Name="CategoryComboBox"
-                              ItemsSource="{Binding SelectedCategories}"
+                              ItemsSource="{Binding Categories}"
                               DisplayMemberPath="Name"
-                              SelectedItem="{Binding SelectedProblem}"
+                              SelectedItem="{Binding SelectedCategory}"
                               VerticalAlignment="Top" />
         <TextBlock Text="Проблемы" FontSize="18" FontWeight="Bold" Margin="0 10 0 10"/>
         <ComboBox x:Name="ProblemsListBox"
