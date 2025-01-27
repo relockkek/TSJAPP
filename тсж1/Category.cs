@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace тсж1
 {
-    internal class Category
+    public class Category
     {
         public string Name { get; set; }
         public ObservableCollection<Problem> Problems { get; set; }

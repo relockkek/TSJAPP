@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using тсж1;
 
 namespace TSJApp
@@ -45,40 +48,26 @@ namespace TSJApp
                 var newProblem = new Problem
                 {
                     Title = "Новая жалоба",
-                    Description = "Описание новой жалобы"
+                    Description = "Описание новой жалобы",
+                    ResolutionPlan = "План решения новой жалобы",
+                    Status = "Открыта"
+
                 };
+                
+
 
                 SelectedCategory.Problems.Add(newProblem);
-                SelectedProblem = newProblem; 
+                SelectedProblem = newProblem;
             }
         }
-    }
 
-    public class Problem
-    {
-        public DateTime CreationDate { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Applicant { get; set; }
-        public string ResolutionPlan { get; set; }
-        public string Status { get; set; }
-
-        public Problem()
+        protected void OnPropertyChanged(string propertyName)
         {
-            CreationDate = DateTime.Now;
-            Status = "Вопрос открыт";
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
-    public class Category
-    {
-        public string Name { get; set; }
-        public ObservableCollection<Problem> Problems { get; set; }
-
-        public Category(string name)
-        {
-            Name = name;
-            Problems = new ObservableCollection<Problem>();
-        }
-    }
 }
+
